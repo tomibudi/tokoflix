@@ -9,8 +9,12 @@ const postcssMqPacker = require('css-mqpacker');
 const autoprefixer = require('autoprefixer');
 const csswring = require('csswring');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
+  node : {
+    fs : "empty"
+  },
   entry: [
     'webpack-hot-middleware/client',
     path.resolve(__dirname, 'src')
@@ -21,6 +25,12 @@ module.exports = {
     publicPath: '/'
   },
   plugins: [
+    new Dotenv({
+      path: './.env', // load this now instead of the ones in '.env'
+      safe: true, // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
+      systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
+      silent: true // hide any errors
+    }),
     new CleanWebpackPlugin(['public/*']),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

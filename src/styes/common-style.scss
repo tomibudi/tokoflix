@@ -61,6 +61,14 @@ body{
 }
 .backdrop-film{
     background : tomato;
-    height:300px;
+    height:400px;
     width: 100%;
+}
+.movie-content{
+    background:#fff;
+    margin-top:-130px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    // margin-top:100px;
+    // position: absolute;
+    border-radius: 10px
 }
