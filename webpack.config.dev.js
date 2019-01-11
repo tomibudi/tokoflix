@@ -45,6 +45,16 @@ module.exports = {
         test: /\.css$/,
         loader: 'style!css!postcss',
         include: path.resolve(__dirname, '/')
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.(gif|eot|woff|woff2|ttf|svg)$/,
+        loaders: [
+          'url-loader'
+        ]
       }
     ]
   },

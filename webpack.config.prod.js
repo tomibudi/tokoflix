@@ -9,8 +9,8 @@ const postcssMqPacker = require('css-mqpacker');
 const autoprefixer = require('autoprefixer');
 const csswring = require('csswring');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src'),
@@ -18,6 +18,31 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
     publicPath: '/'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        include: path.resolve(__dirname, 'src')
+      },
+      {
+        test: /\.css/,
+        loader: ExtractTextPlugin.extract('style', 'css!postcss'),
+        include: path.resolve(__dirname, '/')
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader','sass-loader'),
+        include: path.resolve(__dirname, '/')
+      },
+      {
+        test: /\.(gif|eot|woff|woff2|ttf|svg)$/,
+        loaders: [
+          'url-loader'
+        ]
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(['public/*']),
@@ -38,22 +63,9 @@ module.exports = {
         to: path.resolve(__dirname, 'public', 'assets')
       }
     ]),
-    new ExtractTextPlugin('bundle.css')
+    new ExtractTextPlugin("bundle.css"),
   ],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        include: path.resolve(__dirname, 'src')
-      },
-      {
-        test: /\.css/,
-        loader: ExtractTextPlugin.extract('style', 'css!postcss'),
-        include: path.resolve(__dirname, '/')
-      }
-    ]
-  },
+  
   postcss: function() {
     return [
       postcssImport,
