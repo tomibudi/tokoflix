@@ -1,6 +1,6 @@
 const initialState = {
     data : [],
-    isLoading : false,
+    isLoading : true,
     isSuccess : false,
     isError : false
 }
@@ -12,14 +12,14 @@ const Movies = (state = initialState, action) => {
                 ...state,
                 isLoading : true,
                 isError : false,
-                isSuccess : true,
-                data : action.payload
+                isSuccess : true
             }
         case "ALL_MOVIES_FULFILLED" :
             return {
                 ...state,
                 isLoading : false,
                 isSuccess: true,
+                data : action.payload.data
             }
         case "ALL_MOVIES_REJECTED" :
             return {

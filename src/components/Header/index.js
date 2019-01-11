@@ -1,6 +1,8 @@
 import React from 'react'
 import Swiper from 'react-id-swiper'
 
+const API_IMG = process.env.API_IMAGE
+
 const params = {
     pagination: {
       el: '.swiper-pagination',
@@ -11,22 +13,24 @@ const params = {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
     },
-    spaceBetween: 30,
+    spaceBetween: 0,
     wrapperClass : "wrapper-custom"
   }
 
-const Header = () => {
+const Header = (props) => {
     return(
         <div>
-           <Swiper {...params}>
-            <div style={{ background: "url('https://i.redd.it/xx5xyqtably11.jpg')", backgroundSize:'cover', backgroundPosition:'top'}}>
-                {/* <img src={`https://i.redd.it/xx5xyqtably11.jpg`} className="img-fluid" /> */}
-            </div>
-            <div>Slide 2</div>
-            <div>Slide 3</div>
-            <div>Slide 4</div>
-            <div>Slide 5</div>
-        </Swiper>
+           
+            <Swiper {...params}>
+                { 
+                    props.trending.isLoading ? (<div>Loading...</div>) :
+                    !props.trending.data ?  (<div>Loading...</div>) :
+                    props.trending.data.results.map((data, key) => {
+                    return(
+                            <div key={key} style={{ background: `url(${API_IMG}${data.backdrop_path})`, backgroundSize:'cover', backgroundPosition:'center'}}></div>
+                    )
+                }) }
+            </Swiper>
         </div>
     )
 }

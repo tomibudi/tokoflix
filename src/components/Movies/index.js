@@ -1,31 +1,70 @@
 import React from 'react'
 import { Link } from 'react-router'
+import { pricing, formatRupiah } from './../../helper/pricing'
 
-const Movies = () => {
+
+const API_IMG = process.env.API_IMAGE
+
+const loadingMovies = () => {
+    return(
+        <div className="container" style={{minHeight:"400px"}}>
+            Loading..
+        </div>
+    )
+}
+const Movies = (props) => {
+    // console.log(window)
     return(
         <div className="container mt-5">
             <h4 className="font-bold">Movies</h4>
             <div className="row mt-3">
-                <div className="col-3">
-                    <Link to="/28397/slugnmae-sdfnj">
-                    <div className="card">
-                        <div className="card-body p-0 movie-card"
-                        style={{ background: "url('https://i.redd.it/xx5xyqtably11.jpg')", backgroundSize:'cover', backgroundPosition:'top'}}
-                        >
-                        </div>
-                        <div className="card-footer bg-white d-flex ">
-                            <div className="flex-fill">
-                                Title <br />
-                                Ratting <span className="badge badge-primary">Kategory</span>
+                
+                { props.movies.isLoading ? loadingMovies() : 
+                !props.movies.data ? loadingMovies() :
+                props.movies.data.results.map((data, index) => {
+                    return(
+                        <div className="col-3 mb-5" key={index}>
+                            <Link to={`${data.id}/${data.title.replace(/ /g,'-')}`}>
+                            <div className="card">
+                                <div className="card-body p-0 movie-card"
+                                style={{ background: `url(${API_IMG}${data.poster_path})`, backgroundSize:'cover', backgroundPosition:'top'}}
+                                >
+                                </div>
+                                <div className="card-footer bg-white d-flex pl-2">
+                                    <div className="flex-fill text-secondary">
+                                        {data.title} <br />
+                                        <img src="/assets/img/star.png" className="img-fluid icon-img"/>{data.vote_average} <br />
+                                        
+                                        
+                                    </div>
+                                    <div className="flex-fill text-right pl-4 text-success font-bold">
+                                        {/* {formatRupiah( pricing(data.vote_average)  )} */}
+                                        { formatRupiah( pricing(data.vote_average) )}
+                                       
+                                    </div>
+                                </div>
+                                <div>
+                                {data.genre_ids.map( (data, id)=>{
+                                    return (
+                                        <div className="mr-1 mb-1 badge badge-info" key={id}>
+                                            { props.genres.data.genres.map((genres, key) => {
+                                                return data == genres.id && genres.name
+                                            })}
+                                        </div>
+                                    )
+                                })}
+                                </div>
                             </div>
-                            <div className="flex-fill text-right">$238</div>
+                            </Link>
                         </div>
-                    </div>
-                    </Link>
-                </div>
+                    )
+                })
+                }
+                
             </div>
         </div>
     )
 }
+
 
 export default Movies
