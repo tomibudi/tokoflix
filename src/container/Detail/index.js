@@ -3,6 +3,7 @@ import { Navbar, Footer, RelatedMovies } from './../../components/'
 import { compose, lifecycle } from 'recompose'
 import { connect } from 'react-redux'
 import { DETAIL_MOVIE } from './../../actions/detail-movie'
+import { RELATED_MOVIE } from './../../actions/related-movie'
 
 const API_IMG = process.env.API_IMAGE
 
@@ -20,8 +21,13 @@ const DetailMovie = (props) => {
                             <div className="col-4 p-4">
                                 <div className="card">
                                     <div className="card-body p-0">
-                                        <img src={ `${API_IMG}${props.detailMovie.data.poster_path}`} className="img-fluid"/>
-
+                                        { props.detailMovie.isLoading ? (<div style={{height:"400px"}}>loading...</div>) : 
+                                            (
+                                                <div style={{minHeight:"400px"}}>
+                                                    <img src={ `${API_IMG}${props.detailMovie.data.poster_path}`} className="img-fluid"/>
+                                                </div>
+                                            )
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -49,9 +55,9 @@ const DetailMovie = (props) => {
                         </div>
                     </div>
                 </div>
-            <div className="container mt-5 mb-5">
-                <RelatedMovies />
-            </div>
+                <div className="container mt-5 mb-5">
+                    <RelatedMovies relatedMovie={props.relatedMovie} genres={props.genres}/>
+                </div>
             <Footer />
         </div>
     )
@@ -59,16 +65,28 @@ const DetailMovie = (props) => {
 
 const mapStateToProps = state => {
     return {
-        detailMovie : state.detailMovie
+        detailMovie : state.detailMovie,
+        relatedMovie : state.relatedMovie,
+        genres : state.genres
     }
 }
 const enhance = compose(
     connect(mapStateToProps),
     lifecycle({
+        componentDidUpdate(props){
+           
+            if(this.props.params.id != props.params.id){
+                this.props.dispatch( DETAIL_MOVIE( this.props.params.id ) )
+                this.props.dispatch( RELATED_MOVIE( this.props.params.id ) )
+                window.scrollTo(0,0)
+            }
+        },
         componentWillMount(){
-            
-            window.scrollTo(0, 0)
             this.props.dispatch( DETAIL_MOVIE( this.props.params.id ) )
+            this.props.dispatch( RELATED_MOVIE( this.props.params.id ) )
+        },
+        componentDidMount(){
+            window.scrollTo(0, 0)
         }
     })
 )

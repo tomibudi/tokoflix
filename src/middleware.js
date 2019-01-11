@@ -56,7 +56,7 @@ export default (req, res) => {
                   ${head.link.toString()}
                   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css">
-                  <link rel="stylesheet" type="text/css" href="bundle.css">
+                  <link rel="stylesheet" type="text/css" href="/bundle.css">
                 </head>
                 <body>
                   <div id='app'>${html}

@@ -23,8 +23,8 @@ const Header = (props) => {
            
             <Swiper {...params}>
                 { 
-                    props.trending.isLoading ? (<div>Loading...</div>) :
-                    !props.trending.data ?  (<div>Loading...</div>) :
+                    props.trending.isLoading ? (<div className="bg-secondary"></div>) :
+                    !props.trending.data ?  (<div className="bg-secondary"></div>) :
                     props.trending.data.results.map((data, key) => {
                     return(
                             <div key={key} style={{ background: `url(${API_IMG}${data.backdrop_path})`, backgroundSize:'cover', backgroundPosition:'center'}}></div>

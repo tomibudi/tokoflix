@@ -15,7 +15,7 @@
   "author": "John Hannah",
   "license": "MIT",
   "dependencies": {
-    "axios": "0.15.1",
+    "axios": "^0.16.2",
     "chai": "3.5.0",
     "dotenv-webpack": "^1.6.0",
     "enzyme": "^3.1.0",
@@ -32,6 +32,7 @@
     "react-helmet": "^5.2.0",
     "react-id-swiper": "^1.6.8",
     "react-infinite-scroller": "^1.2.4",
+    "react-js-loading-shimmer": "^1.0.10",
     "react-js-pagination": "^3.0.2",
     "react-paginate": "^6.0.0",
     "react-redux": "^5.0.6",

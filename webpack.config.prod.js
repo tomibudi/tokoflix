@@ -55,6 +55,10 @@ module.exports = {
       systemvars: true, // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
       silent: true // hide any errors
     }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new CleanWebpackPlugin(['public/*']),
     new webpack.DefinePlugin({
       'process.env': {

@@ -44,10 +44,14 @@ const Movies = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                {data.genre_ids.map( (data, id)=>{
+                                {   
+                                    
+                                    data.genre_ids.map( (data, id)=>{
                                     return (
                                         <div className="mr-1 mb-1 badge badge-info" key={id}>
-                                            { props.genres.data.genres.map((genres, key) => {
+                                            { 
+                                                props.genres.isLoading ? (<span>Loading...</span>) :
+                                                props.genres.data.genres.map((genres, key) => {
                                                 return data == genres.id && genres.name
                                             })}
                                         </div>
