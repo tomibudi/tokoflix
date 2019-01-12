@@ -10,7 +10,7 @@ import Avatar from 'react-avatar'
 const Navbar = (props) => {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light navbar-test">
                 <div className="container">
                     <Link to="/?page=1" className="navbar-brand font-bold" href="#">TokoFlix</Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

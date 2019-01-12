@@ -94,10 +94,6 @@
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.12.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Lullabot/React-Redux-Boilerplate"
-  },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/config/setup-test.js"
   }

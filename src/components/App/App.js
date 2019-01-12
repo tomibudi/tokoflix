@@ -6,7 +6,7 @@ if (process.env.WEBPACK) {
   require('./../../styes/common-style.scss'); // eslint-disable-line global-require
 }
 const App = props => (
-  <div>
+  <div className="App">
     {props.children}
   </div>
 );

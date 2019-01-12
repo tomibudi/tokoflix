@@ -22,6 +22,7 @@ export default (req, res) => {
             <head>
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width">
+              <title>TokoFlix</title>
               <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.css">
               </head>
@@ -51,6 +52,7 @@ export default (req, res) => {
                 <head>
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width">
+                  <title>TokoFlix</title>
                   ${head.title.toString()}
                   ${head.meta.toString()}
                   ${head.link.toString()}

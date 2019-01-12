@@ -19,7 +19,7 @@ const params = {
 
 const Header = (props) => {
     return(
-        <div>
+        <div className="headers">
            
             <Swiper {...params}>
                 { 

@@ -15,7 +15,7 @@ const loadingMovies = () => {
 const Movies = (props) => {
     // console.log(window)
     return(
-        <div className="container mt-5">
+        <div className="container mt-5 movie-content">
             <h4 className="font-bold">Movies</h4>
             <div className="row mt-3">
                 
