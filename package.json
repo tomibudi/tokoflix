@@ -4,7 +4,7 @@
   "description": "React Redux Boilerplate",
   "main": "src/index.js",
   "scripts": {
-    "start" :"webpack --config ./webpack.config.dev.js && npm run browser",
+    "start" :"cross-env NODE_ENV=production babel-node ./server.js",
     "lintJS": "eslint --fix ./src",
     "lintCSS": "stylelint src/**/*.css",
     "test": "jest",

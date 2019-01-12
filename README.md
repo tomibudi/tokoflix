@@ -1,6 +1,6 @@
 
 # Tokoflix
-tokoflix is streaming movie app,
+tokoflix is movie app, http://128.199.132.140:3000/
 tokoflix using https://developers.themoviedb.org/3/getting-started/introduction for API.
 ### Tech on mini project tokoflix
 - react 

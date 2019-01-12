@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './components/App/App';
-import HomePage from './container/HomePage/';
+import Homepage from './container/Homepage/';
 import DetailMovie from  './container/Detail/index';
 // import PostPage from './components/PostPage/PostPage';
 
