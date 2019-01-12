@@ -13,7 +13,7 @@ const Homepage = (props) => {
         <div>
             <Navbar />
             <Header trending={props.trending} />
-            <Movies movies={props.movies} genres={props.genres}/>
+            <Movies movies={props.movies} genres={props.genres} order={props.order} />
             <div className="container">
                 <Pagination
                     activePage={ props.location.query.page != undefined ? parseInt(props.location.query.page) : 1 }
@@ -33,7 +33,8 @@ const Homepage = (props) => {
 const mapStateToProps = state => ({
     movies : state.movies,
     genres : state.genres,
-    trending : state.trending
+    trending : state.trending,
+    order : state.order
 })
 
 const enhance = compose(

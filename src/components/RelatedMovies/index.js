@@ -16,7 +16,7 @@ const RelatedMovies = (props) => {
                         return(
                             
                             <div className="col-3 mb-4" key={key}>
-                                <Link to={`/${data.id}/${data.title.replace(/ /g,'-')}`}>
+                                <Link to={`/${data.id}-${data.title.replace(/ /g,'-')}`}>
                                 <div className="card">
                                     <div className="card-body p-0">
                                         <img src={`${API_IMG}/${data.poster_path}`} className="img-fluid" />

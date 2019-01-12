@@ -19,7 +19,7 @@ const Auth = (state = initialState, action) => {
                 isSuccess: true,
                 data : {
                     ...action.payload,
-                    isLoggedIn : true
+                    isLoggedIn : action.payload.isLoggedIn
                 },
             }
         default : 
