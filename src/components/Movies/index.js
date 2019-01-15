@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { pricing, formatRupiah } from './../../helper/pricing'
 import { browserHistory } from 'react-router';
 
-const API_IMG = process.env.API_IMAGE
+const API_IMG = process.env.API_IMAGE_COMPRESS
 
 const loadingMovies = () => {
     return(
@@ -15,7 +15,7 @@ const loadingMovies = () => {
 const Movies = (props) => {
     // console.log(window)
     return(
-        <div className="container mt-5 movie-content">
+        <div className="container mt-5">
             <h4 className="font-bold">Movies</h4>
             <div className="row mt-3">
                 

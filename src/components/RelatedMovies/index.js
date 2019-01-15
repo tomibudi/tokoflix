@@ -2,7 +2,7 @@ import React from 'react'
 import { pricing, formatRupiah } from './../../helper/pricing'
 import { Link } from 'react-router'
 
-const API_IMG = process.env.API_IMAGE
+const API_IMG = process.env.API_IMAGE_COMPRESS
 
 const RelatedMovies = (props) => {
     return(
